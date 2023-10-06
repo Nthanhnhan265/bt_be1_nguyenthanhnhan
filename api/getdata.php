@@ -12,7 +12,7 @@
                 $jsonFile=json_encode($sinhVien); 
                 echo($jsonFile);
             } else if($id==2) { 
-                $jsonFile=json_encode();
+                
             }
             else { 
                 

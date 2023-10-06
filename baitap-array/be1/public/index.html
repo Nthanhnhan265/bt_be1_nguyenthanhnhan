@@ -6,22 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Nguyen Thanh Nhan</title>
 </head>
 
 <body>
     <h1>Hello World</h1>
     <a href="#" id="baiTap1">Bai tap 1</a>
     <div id="show">
-
+ 
     </div>
-
+   
     <script>
         const showList = document.querySelector('#showList');
         let show = document.querySelector('#show');
-
+        
         async function getData() {
-            const url = 'http://localhost/bt_be1_nguyenthanhnhan/api/getdata.php?baitap=1'
+            const url = 'http://localhost:81/bt_be1_nguyenthanhnhan/api/getdata.php?baitap=1'
             const res = await fetch(url);
             
             if (!res.status == 200) {
@@ -29,7 +29,6 @@
             }
             else {
                 const data = await res.json();
-
                 let html = `<table id="tbSinhVien">
             <tr>
                 <th>Sinh Vien</th>
