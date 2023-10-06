@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Thanh Nhan</title>
+    <style>
+        #contain-form { 
+
+            width: 150px;
+            margin:0 auto; 
+        }
+        #form { 
+            width: 100%;
+        }
+        #info { 
+            background: #e9dfdf;;
+            width: 150px;
+            margin:0 auto; 
+        }
+    </style>
+</head>
+<body>
+    <div id="contain-form">
+        <form action="./baitap3.php" method="Post" id="form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email">
+            <label for="website">Website: </label>
+            <input type="text" name="website" id="website">
+            <label for="comment">Comment: </label>      
+            <textarea type="text" name="comment" id="comment"></textarea>
+            <label>Gender: 
+                <input type="radio" name="gender" id="female" value="female">
+                <input type="radio" name="gender" id="male" value="male">
+            </label>
+            <input type="submit" style="display:block">
+        </form>
+    </div>
+    <ul id="result">
+    </ul>
+<script> 
+    form.addEventListener('submit', async (event)=> {
+        let rs=document.querySelector('#result');  
+        rs.textContent=""; 
+        event.preventDefault(); 
+        const myForm=document.querySelector('form'); 
+        const formData= new FormData(myForm); 
+       
+        try {
+            const res=await fetch("../baitap3.php",{method:"POST",body:formData}); 
+            if(!res.ok) { 
+                throw new Error("Network response was not ok");
+            }
+            let jsonStr = await res.text(); // Get the JSON string
+            let arr = JSON.parse(jsonStr); // Parse it as JSON
+
+            for(e in arr) { 
+                rs.innerHTML+=`<li>${e}: ${arr[e]}</li>`;
+            }            
+        } catch (error) {
+            alert(error); 
+        }
+
+
+
+    }); 
+</script>
+</body>
+</html>
