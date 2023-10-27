@@ -53,6 +53,12 @@
                     <td>".$user->studentClassify()."</td>
                 </tr>");        
              ?>
-        </table> 
+</table> <br>
+
+<p>
+    <?php 
+        echo("PrintInfo: ".$user->PrintInfo()); 
+    ?>
+</p>
 </body>
 </html>

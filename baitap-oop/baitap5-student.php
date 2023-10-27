@@ -1,7 +1,8 @@
 <?php
 require('baitap1-2.php'); 
+require('baitap6-interface.php'); 
 
-class Student extends User {
+class Student extends User implements Printable{
     //properties 
     private $gpa;
     //constructor 
@@ -23,6 +24,10 @@ class Student extends User {
         } else { 
             return "Giỏi"; 
         }
+    }
+    //implement interface 
+    public function PrintInfo() { 
+        return "Họ tên: ".$this->getFullname().", GPA: $this->gpa, Xếp loại: ".$this->studentClassify(); 
     }
 }
 
