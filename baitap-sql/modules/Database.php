@@ -13,6 +13,7 @@ class Database {
         $item=$sql->get_result()->fetch_all(MYSQLI_ASSOC);
         return $item; 
     }
+    
 
 }
 

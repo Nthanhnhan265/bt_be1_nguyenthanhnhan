@@ -4,7 +4,7 @@
         require("./modules/$className.php"); 
     } )  ; 
     $product=new Product();
-    $products=$product->getProduct("select * from products");  
+    $productDetail=$product->getProductByID( $_GET["id"]);  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,12 +15,7 @@
 </head>
 <body>
 <?php
-    foreach($products as $product)   {
-        if($product["id"] == $_GET["id"]) { 
-            echo $product["description"]; 
-            //echo("<img class='card-img-top' alt='err' src='public/images/".$product['image']."'/>"); 
-        }
-    }
+    echo($productDetail["description"]); 
 ?>
 
 </body>
